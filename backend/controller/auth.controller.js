@@ -4,10 +4,10 @@ const User = require("../models/user.model");
 
 const register = async (req, res) => {
   try {
-    const { username, password } = req.body;
-    if (!username || !password) {
+    const { username, email, password } = req.body;
+    if (!username || !email || !password) {
       return res.status(400).json({
-        error: "Username and password are required",
+        error: "Username, email and password are required",
       });
     }
     if (password.length < 6) {
@@ -15,18 +15,17 @@ const register = async (req, res) => {
         .status(400)
         .json({ error: "password must be at least 6 characters!" });
     }
-    if (typeof password !== "string") {
-      return res.status(400).json({ error: "password must be a string " });
-    }
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = new User({
       username,
+      email,
       password: hashedPassword,
     });
     await user.save();
     res.status(201).json({ message: "User Registered Successfully!!" });
   } catch (error) {
-    res.status(500).json({ error: `Registration failed: ${error.message}` });
+    console.log(error);
+    return res.send(500).send("Internal server error!");
   }
 };
 
@@ -47,7 +46,8 @@ const login = async (req, res) => {
     res.status(200).json({token});
 
   } catch (error) {
-    res.status(500).json({error: "login failed!"});
+    console.log(error);
+    return res.send(500).send("Internal server error!");
   }
 };
 
