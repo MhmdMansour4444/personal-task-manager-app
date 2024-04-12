@@ -5,11 +5,6 @@ const User = require("../models/user.model");
 const register = async (req, res) => {
   try {
     const { username, email, password } = req.body;
-    if (!username || !email || !password) {
-      return res.status(400).json({
-        error: "Username, email and password are required",
-      });
-    }
     if (password.length < 6) {
       return res
         .status(400)
