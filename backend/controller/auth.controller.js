@@ -35,7 +35,7 @@ const login = async (req, res) => {
     if (!passMatch) {
       return res.status(401).json({ error: "Authentication Failed!" });
     }
-    const token = jwt.sign({userId: user._id}, proccess.env.JWT_SECRET_KEY,{
+    const token = jwt.sign({userId: user._id}, process.env.JWT_SECRET_KEY,{
         expiresIn: "3hrs"
     });
     res.status(200).json({token});
