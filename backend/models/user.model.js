@@ -16,6 +16,31 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  boards: [boardSchema],
+});
+
+const boardSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    require: true,
+  },
+  columns: [columnSchema],
+});
+
+const columnSchema = new mongoose.Schema({
+  title: {
+    type: String,
+  },
+  tasks: [taskSchema],
+});
+
+const taskSchema = new mongoose.Schema({
+  title: {
+    type: String,
+  },
+  details: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("User", userSchema);
