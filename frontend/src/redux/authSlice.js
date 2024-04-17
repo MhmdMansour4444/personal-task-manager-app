@@ -8,17 +8,19 @@ const initialState = {
   isLogin: true,
 };
 
-const authSlice = createSlice({
+export const authSlice = createSlice({
   name: "authSlice",
   initialState,
   reducers: {
-    switchToRegister: (state) => {
+    switchRegister: (state) => {
+      Object.assign(state, initialState);
       state.isLogin = false;
     },
-    switchToSignIn: (state) => {
+    switchSignin: (state) => {
+      Object.assign(state, initialState);
       state.isLogin = true;
     },
-    updateState: (state, action) => {
+    updateInput: (state, action) => {
       const { key, value } = action.payload;
       state[key] = value;
     },
@@ -26,6 +28,6 @@ const authSlice = createSlice({
   },
 });
 
-export const { switchToRegister, switchToSignIn, updateState } = authSlice.actions;
+export const { switchRegister, switchSignin, updateInput } = authSlice.actions;
 export const authSliceName = authSlice.name;
 export default authSlice.reducer;
