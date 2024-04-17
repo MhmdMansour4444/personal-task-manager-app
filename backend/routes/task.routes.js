@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const taskController = require("../controller/tasks.controller");
+const taskController = require("../controller/task.controller");
+const authMiddleware = require("../middlewares/auth.middleware");
 
 router.post(
   "/boards/:boardId/columns/:columnId/tasks",
