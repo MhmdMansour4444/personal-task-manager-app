@@ -1,10 +1,5 @@
-// task.controller.js
+const User = require("../models/user.model");
 
-const User = require('../models/user.model');
-
-// @desc    Get all tasks for a specific board and column
-// @route   GET /api/boards/:boardId/columns/:columnId/tasks
-// @access  Private
 export const getTasksForColumn = async (req, res) => {
   try {
     const { boardId, columnId } = req.params;
@@ -27,7 +22,7 @@ export const getTasksForColumn = async (req, res) => {
     res.json(tasks);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 };
 
@@ -58,13 +53,10 @@ export const createTaskForColumn = async (req, res) => {
     res.status(201).json(newTask);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 };
 
-// @desc    Update a task
-// @route   PUT /api/boards/:boardId/columns/:columnId/tasks/:taskId
-// @access  Private
 export const updateTask = async (req, res) => {
   try {
     const { boardId, columnId, taskId } = req.params;
@@ -97,13 +89,10 @@ export const updateTask = async (req, res) => {
     res.json(task);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 };
 
-// @desc    Delete a task
-// @route   DELETE /api/boards/:boardId/columns/:columnId/tasks/:taskId
-// @access  Private
 export const deleteTask = async (req, res) => {
   try {
     const { boardId, columnId, taskId } = req.params;
@@ -123,7 +112,9 @@ export const deleteTask = async (req, res) => {
       return res.status(404).json({ error: "Column not found." });
     }
 
-    const taskIndex = column.tasks.findIndex(task => task._id.toString() === taskId);
+    const taskIndex = column.tasks.findIndex(
+      (task) => task._id.toString() === taskId
+    );
     if (taskIndex === -1) {
       return res.status(404).json({ error: "Task not found." });
     }
@@ -134,6 +125,6 @@ export const deleteTask = async (req, res) => {
     res.json({ message: "Task deleted successfully." });
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 };

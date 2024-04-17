@@ -1,5 +1,3 @@
-// Column.jsx
-
 import React from "react";
 import Task from "../Tasks/Task";
 
@@ -9,8 +7,12 @@ const Column = ({ column }) => {
     const taskId = e.dataTransfer.getData("taskId");
     const columnId = e.currentTarget.getAttribute("data-column-id");
     if (taskId && columnId === column.id.toString()) {
-
-      console.log("Dropped task with ID:", taskId, "into column:", column.title);
+      console.log(
+        "Dropped task with ID:",
+        taskId,
+        "into column:",
+        column.title
+      );
     }
   };
 

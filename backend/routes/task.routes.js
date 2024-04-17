@@ -16,5 +16,6 @@ router.put(
 router.delete(
   "/boards/:boardId/columns/:columnId/tasks/:taskId",
   authMiddleware,
-  taskController.deleteTask
+  taskController.deleteTaadd
 );
+module.exports = router;
