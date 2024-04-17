@@ -1,6 +1,7 @@
 const express = require("express");
 const authRoute = require("./routes/auth.routes");
 const { connect } = require("./config/db.config");
+const boardRoute = require
 
 const App = express();
 
