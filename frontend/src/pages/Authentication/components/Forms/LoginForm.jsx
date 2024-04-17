@@ -1,8 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { updateInput } from "../../../../redux/authSlice";
-import Input from "../../../../components/Input";
-import Button from "../../../../components/Button";
 
 const LoginForm = (validateLogin) => {
   const dispatch = useDispatch();

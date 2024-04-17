@@ -1,14 +1,14 @@
 import React from "react";
-import Sidebar from "./Components/Sidebar";
 import Header from "./Components/Header";
 import "./style.css";
+import Dashboard from "./Components/Dashboard";
 
 const Home = () => {
   return (
     <div className="main-dashboard">
       <Header />
       <div className="dashboard-content">
-        <Sidebar />
+        <Dashboard/>
       </div>
     </div>
   );
