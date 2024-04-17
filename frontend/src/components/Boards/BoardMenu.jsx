@@ -3,13 +3,12 @@ import "./styles/style.css";
 
 const BoardMenu = ({ board }) => {
   const handleDeleteBoard = () => {
-    // Handle delete board logic
+    // Handle delete board logic, couldnt do it yet
   };
 
   return (
     <div className="board-menu">
       <button onClick={handleDeleteBoard}>Delete Board</button>
-      {/* Other board options */}
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = ({ username }) => {
   const handleLogout = () => {
-    // Handle logout logic
+    
   };
 
   return (
