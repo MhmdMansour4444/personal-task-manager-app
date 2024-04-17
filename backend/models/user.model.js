@@ -7,6 +7,11 @@ const taskSchema = new mongoose.Schema({
   details: {
     type: String,
   },
+  tags: [
+    {
+      type: String,
+    },
+  ],
 });
 
 const columnSchema = new mongoose.Schema({
